@@ -2,16 +2,14 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
+from .models import Transaction
 
+#Create a Transaction form
 
-
-from .models import Order
-
-
-class OrderForm(ModelForm):
+class TransactionForm(ModelForm):
 	class Meta:
-		model = Order
-		fields = '__all__'
+		model = Transaction
+		fields = "__all__"
 
 class CreateUserForm(UserCreationForm):
 	class Meta:
