@@ -5,14 +5,28 @@
     <center>
     <h1>Add a New Transaction</h1>
     <br /><br />
-    <form action="", method="post">
-        {% csrf_token %}
+    {% if submitted %}
+        Your Transaction Has Been Recorded Successfully😁!!!
+        <br /><br />
 
-        {{ form.as_p }}
+			<a class="btn btn-info   btn btn-primary btn-lg " href="{% url 'newform' %}">Enter New Transaction</a>
+			<table class="table table-sm">
 
-        <input type="submit" value="Submit" class="btn btn-secondary">
 
-    </form>
+			</table>
+
+
+    {% else %}
+
+        <form action="", method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <input type="submit" value="Submit" class="btn btn-primary">
+
+        </form>
+    {% endif %}
     </center>
 
 {% endblock %}
